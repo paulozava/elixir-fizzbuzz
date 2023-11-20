@@ -1,4 +1,5 @@
 defmodule Fizzbuzz do
+  @spec fizzbuzz(any()) :: list()
   def fizzbuzz(collection) do
     Enum.map(collection, fn x ->
       cond do
@@ -10,8 +11,9 @@ defmodule Fizzbuzz do
     end)
   end
 
+  @spec run() :: list()
   def run() do
-    numbers = File.read!("numbers.txt")
+    numbers = File.read!("/Users/paulozava/Codes/elixir-fizzbuzz/lib/numbers.txt")
     numbers = String.trim(numbers) |> String.split(", ") |> Enum.map(fn x -> String.to_integer(x) end)
     fizzbuzz(numbers)
   end
